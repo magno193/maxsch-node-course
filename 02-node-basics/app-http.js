@@ -1,13 +1,22 @@
 const http = require('http');
+const fs = require('fs');
 
 const server = http.createServer((req, res) => {
-  console.log(req.url, req.method, req.headers);
-  res.setHeader('Content-Type', 'text/html; charset=utf-8');
-  res.write('<html>');
-  res.write('<head><title>Página simples</title></head>');
-  res.write('<h2>Olá mundo</h2>')
-  res.write('</html>');
-  res.end();
+  const url = req.url;
+  if (url === '/') {
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    res.write('<html>');
+    res.write('<head><title>Digite uma mensagem</title></head>');
+    res.write('<body><form action="/mensagem" method="POST"><input type="text" name="mensagem"><button type="submit">Enviar</button></form></body></html>');
+    res.write('</html>');
+    return res.end();
+  }
+  if (url === '/mensagem' && req.method === 'POST') {
+    fs.writeFileSync('mensagem.txt', 'DUMMY');
+    res.statusCode = 302;
+    res.setHeader('Location', '/');
+    return res.end();
+  }
 });
 
 server.listen(3000);
