@@ -1,0 +1,15 @@
+{
+  "name": "node-basics",
+  "version": "1.0.0",
+  "description": "Módulo de exemplo HTTP para NodeJS",
+  "main": "app-http.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app-http.js"
+  },
+  "author": "Alexandre Ferreira",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
