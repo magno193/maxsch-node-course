@@ -1,18 +1,20 @@
 const express = require('express');
 const bodyParser = require('body-parser')
+const path = require('path');
 
-const shopRoutes = require('./routes/shop.routes');
 const adminRoutes = require('./routes/admin.routes');
+const shopRoutes = require('./routes/shop.routes');
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(adminRoutes);
-app.use('/shop', shopRoutes);
+app.use(shopRoutes);
 
 app.use((req, res, next) => {
-  return res.status(404).send('<h1>404 - Página não encontrada</h1>')
+  const htmlPath = path.join(__dirname, 'views', '404.html');
+  return res.status(404).sendFile(htmlPath)
 });
 
 app.listen(3000, () =>
