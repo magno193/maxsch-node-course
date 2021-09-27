@@ -1,16 +1,15 @@
 const express = require('express');
-
+const path = require('path')
+const usersRoutes = require('./routes/users.routes');
+const mainRoutes = require('./routes/main.routes');
 const app = express();
 
-app.use('/users', (req, res) => {
-  console.log('😁 Users');
-  return res.send('<h1>Users</h>')
-});
+app.use(express.static(
+  path.join(__dirname, 'public'))
+);
 
-app.use('/', (req, res) => {
-  console.log('🔥 Welcome');
-  return res.send('<h1>Welcome</h1>');
-});
+app.use('/users', usersRoutes);
+app.use(mainRoutes);
 
 const PORT = 3333;
 app.listen(PORT, () => {
