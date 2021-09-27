@@ -5,8 +5,8 @@ html(lang="en")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title #{docTitle}
-    link(rel="stylesheet", href="/css/main.css")
-    link(rel="stylesheet", href="/css/product.css")
+    link(rel="stylesheet", href="css/main.css")
+    link(rel="stylesheet", href="css/product.css")
   body 
     header.main-header
       nav.main-header__nav
@@ -14,7 +14,7 @@ html(lang="en")
           li.main-header__item
             a.active(href="/") Shop
           li.main-header__item
-            a(href="admin/add-product") Adicionar Produto
+            a(href="/admin/add-product") Adicionar Produto
     
     main
       if prods.length
