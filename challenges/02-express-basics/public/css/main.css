@@ -1,0 +1,9 @@
+.main-navigation__list {
+  list-style-type: none;
+  display: flex;
+}
+
+.main-navigation__item {
+  display: block;
+  padding: 10px;
+}
