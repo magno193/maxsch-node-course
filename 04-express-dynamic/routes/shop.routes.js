@@ -8,7 +8,8 @@ router.get('/', (req, res, next) => {
   console.log('🛒', products);
   res.render('shop', {
     prods: products,
-    docTitle: 'Shop'
+    pageTitle: 'Shop',
+    path: '/',
   });
 });
 

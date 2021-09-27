@@ -7,7 +7,10 @@ const products = [];
 
 router.get('/add-product', (req, res, next) => {
   console.log('💰');
-  res.render('add-product');
+  res.render('add-product', {
+    pageTitle: 'Novos produtos',
+    path: '/admin/add-product',
+  });
 });
 
 router.post('/add-product', (req, res) => {
