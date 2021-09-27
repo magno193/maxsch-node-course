@@ -3,15 +3,21 @@ const path = require('path');
 const router = Router();
 const rootDir = require('../helpers/path');
 
+const products = [];
+
 router.get('/add-product', (req, res, next) => {
-  console.log('🛒');
+  console.log('💰');
   const htmlPath = path.join(rootDir, 'views', 'add-product.html');
   res.sendFile(htmlPath);
 });
 
 router.post('/add-product', (req, res) => {
-  console.log('🛒', req.body);
+  console.log('💰', req.body);
+  products.push({ title: req.body.title });
   res.redirect('/');
 });
 
-module.exports = router;
+module.exports = {
+  router,
+  products,
+};
