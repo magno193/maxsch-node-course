@@ -10,7 +10,9 @@ router.get('/', (req, res, next) => {
     prods: products,
     pageTitle: 'Shop',
     path: '/',
-    hasProducts: Boolean(products.length)
+    hasProducts: Boolean(products.length),
+    activeShop: true,
+    productCSS: true,
   });
 });
 

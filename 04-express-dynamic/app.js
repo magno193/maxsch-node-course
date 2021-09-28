@@ -10,8 +10,8 @@ expressHbs.compile
 
 app.engine('hbs', expressHbs({
   extname: "hbs",
-  defaultLayout: "",
-  layoutsDir: "",
+  defaultLayout: "main-layout.hbs",
+  layoutsDir: "views/layouts",
 })); // Registrando template engine não built-in
 app.set('view engine', 'hbs'); // Registrando template engine
 app.set('views', 'views'); // Onde template engine deve ser compilado
