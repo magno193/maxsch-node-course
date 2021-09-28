@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{pageTitle}}</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/product.css">
+</head>
+
+<body>
+  <header class="main-header">
+    <nav class="main-header__nav">
+      <ul class="main-header__item-list">
+        <li class="main-header__item"><a class="active" href="{{path}}">Shop</a></li>
+        <li class="main-header__item"><a href="/admin/add-product">Adicionar Produto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    {{#if prods.length}}
+    <div class="grid">
+      {{#each prods}}
+      <article class="card product-item">
+        <header class="card__header">
+          <h1 class="product__title">{{this.title}}</h1>
+        </header>
+        <div class="card__image">
+          <img src="https://semantic-ui.com/images/wireframe/image.png" alt="A Book">
+        </div>
+        <div class="card__content">
+          <h2 class="product__price">$19.99</h2>
+          <p class="product__description">Um livro bastante interessante sobre muitas coisas</p>
+        </div>
+        <div class="card__actions">
+          <button class="btn">Adicionar ao Carrinho</button>
+        </div>
+      </article>
+      {{/each}}
+    </div>
+    {{else}}
+    <h1>Não há produtos</h1>
+    {{/if}}
+
+  </main>
+</body>
+
+</html>

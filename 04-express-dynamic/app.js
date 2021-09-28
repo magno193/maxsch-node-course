@@ -1,12 +1,19 @@
 const express = require('express');
 const path = require('path');
-
+const expressHbs = require('express-handlebars');
 const { products, router: adminRoutes } = require('./routes/admin.routes');
 const shopRoutes = require('./routes/shop.routes');
 
 const app = express()
 
-app.set('view engine', 'pug'); // Registrando template engine
+expressHbs.compile
+
+app.engine('hbs', expressHbs({
+  extname: "hbs",
+  defaultLayout: "",
+  layoutsDir: "",
+})); // Registrando template engine não built-in
+app.set('view engine', 'hbs'); // Registrando template engine
 app.set('views', 'views'); // Onde template engine deve ser compilado
 
 app.use(express.json());
