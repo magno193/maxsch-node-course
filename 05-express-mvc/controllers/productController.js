@@ -13,21 +13,22 @@ exports.getAddProduct = (req, res, next) => {
 
 exports.postAddProduct = (req, res) => {
   const product = new Product(req.body.title);
-  product.save()
+  product.save();
   console.log('💰', req.body);
   res.redirect('/');
 };
 
 exports.getShop = (req, res, next) => {
-  const products = Product.fetchAll();
-  console.log('🛒', products);
-  res.render('shop', {
-    prods: products,
-    pageTitle: 'Shop',
-    path: '/',
-    hasProducts: Boolean(products.length),
-    activeShop: true,
-    productCSS: true,
+  Product.fetchAll(products => {
+    console.log('🛒', products);
+    res.render('shop', {
+      prods: products,
+      pageTitle: 'Shop',
+      path: '/',
+      hasProducts: !!products.length,
+      activeShop: true,
+      productCSS: true,
+    });
   });
 };
 
