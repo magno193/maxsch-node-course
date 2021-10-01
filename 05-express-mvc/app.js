@@ -1,7 +1,10 @@
 const express = require('express');
 const path = require('path');
-const { products, router: adminRoutes } = require('./routes/admin.routes');
+
+const adminRoutes = require('./routes/admin.routes');
 const shopRoutes = require('./routes/shop.routes');
+
+const { get404 } = require('./controllers/errorController');
 
 const app = express()
 
@@ -15,9 +18,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 
-app.use((req, res, next) => {
-  return res.status(404).render('404', { pageTitle: 'Not Found', path: "" });
-});
+app.use(get404);
 
 app.listen(3000, () =>
   console.log('🔥Iniciado em:', 'http://localhost:3000 🚀')
