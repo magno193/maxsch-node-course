@@ -11,9 +11,17 @@ exports.getProducts = (req, res) => {
   });
 };
 
+exports.getProduct = (req, res) => {
+  const { id } = req.params;
+  Product.fetchById(id, product => {
+    console.log('🗳️ ', product);
+  });
+  res.redirect('/');
+};
+
 exports.getIndex = (req, res) => {
   Product.fetchAll(products => {
-    console.log('🛒', products);
+    console.log('🛒 ', products);
     res.render('shop/index', {
       prods: products,
       pageTitle: 'Shop',
