@@ -41,6 +41,12 @@ exports.getCart = (req, res) => {
   });
 };
 
+exports.postCart = (req, res, next) => {
+  const { id } = req.body;
+  console.log(id);
+  next();
+}
+
 exports.getOrders = (req, res) => {
   res.render('shop/orders', {
     path: '/orders',
