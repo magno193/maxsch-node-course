@@ -20,8 +20,7 @@ module.exports = class Product {
     this.title = title;
     this.imageUrl = imageUrl;
     this.description = desc;
-    this.price = price;
-
+    this.price = +price.replace(',', '.');
   };
 
   save() {
