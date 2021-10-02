@@ -15,11 +15,11 @@
               </h1>
             </header>
             <div class="card__image">
-              <img src="https://semantic-ui.com/images/wireframe/image.png" alt="A Book">
+              <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
             </div>
             <div class="card__content">
-              <h2 class="product__price">$19.99</h2>
-              <p class="product__description">Um livro bastante interessante sobre muitas coisas</p>
+              <h2 class="product__price">R$<%= product.price %></h2>
+              <p class="product__description"><%= product.description %></p>
             </div>
             <div class="card__actions">
               <button class="btn">Adicionar ao Carrinho</button>

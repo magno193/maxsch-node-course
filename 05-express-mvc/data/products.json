@@ -1,8 +1,8 @@
 [
   {
-    "title": "Produto"
-  },
-  {
-    "title": "Produto dois"
+    "title": "Titulo 1",
+    "imageUrl": "https://picsum.photos/160/100",
+    "description": "Uma descrição sobre uma imagem aleatória",
+    "price": "28.23"
   }
 ]
