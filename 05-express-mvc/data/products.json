@@ -1,1 +1,16 @@
-[{"title":"Título aleatório","imageUrl":"https://picsum.photos/160/100","description":"Uma descrição aleatória de um produto aleatório com imagem aleatória.","price":"23,42","id":"2838175701241"},{"title":"Título Aleatório Dois","imageUrl":"https://picsum.photos/160/100","description":"Uma descrição de um produto randômico.","price":"12,34","id":"2403087148384"}]
+[
+  {
+    "title": "Título aleatório",
+    "imageUrl": "https://picsum.photos/320/200",
+    "description": "Uma descrição aleatória de um produto aleatório com imagem aleatória.",
+    "price": "23,42",
+    "id": "2838175701241"
+  },
+  {
+    "title": "Título Aleatório Dois",
+    "imageUrl": "https://picsum.photos/320/200",
+    "description": "Uma descrição de um produto randômico.",
+    "price": "12,34",
+    "id": "2403087148384"
+  }
+]
