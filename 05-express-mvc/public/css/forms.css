@@ -3,35 +3,21 @@
 }
 
 .form-control label,
-.form-control input {
+.form-control input,
+.form-control textarea {
   display: block;
   width: 100%;
+  margin-bottom: 0.25rem;
 }
 
-.form-control input {
-  border: 1px solid #00abc2;
+.form-control input,
+.form-control textarea {
+  border: 1px solid #a1a1a1;
   font: inherit;
   border-radius: 2px;
 }
 
-.form-control input:focus {
-  outline-color: #00abc2;
-}
-
-button {
-  font: inherit;
-  font-weight: bold;
-  color: #4311ce;
-  border: 1px solid #4311ce;
-  background: white;
-  border-radius: 3px;
-  cursor: pointer;
-  padding: .2rem .5rem;
-}
-
-button:hover,
-button:active,
-button.active {
-  background: #4311ce;
-  color: white;
+.form-control input:focus,
+.form-control textarea:focus {
+  outline-color: #00695c;
 }
