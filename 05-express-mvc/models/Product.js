@@ -5,6 +5,7 @@ const dirPath = path.join(
   'data',
   'products.json'
 );
+const Cart = require('./Cart');
 
 const getProductsFromFile = callback => {
   fs.readFile(dirPath, (err, fileContent) => {
@@ -19,7 +20,7 @@ module.exports = class Product {
   constructor(id = null, title, imageUrl, desc, price) {
     this.id = id;
     this.title = title.trim();
-    this.imageUrl = imageUrl;
+    this.imageUrl = 'https://i7x7p5b7.stackpathcdn.com/codrops/wp-content/uploads/2019/04/C512_parcel.jpg';
     this.description = desc.trim();
     this.price = +price;
   };
@@ -31,7 +32,7 @@ module.exports = class Product {
         const updatedProducts = [...products];
         updatedProducts[existingProductIdx] = this;
         fs.writeFile(dirPath, JSON.stringify(updatedProducts), (err) => {
-          console.error(err);
+          if (err) console.error(err);
         });
         return;
       }
@@ -39,7 +40,19 @@ module.exports = class Product {
       this.id = ((Math.random() * date) + date).toString().split('.')[0];
       products.push(this);
       fs.writeFile(dirPath, JSON.stringify(products), (err) => {
-        console.error(err);
+        if (err) console.error(err);
+      });
+    });
+  };
+
+  static deleteById(id) {
+    getProductsFromFile(products => {
+      const product = products.find(p => p.id === id);
+      const updatedProducts = products.filter(p => p.id !== id);
+      fs.writeFile(dirPath, JSON.stringify(updatedProducts), (err) => {
+        if (!err) {
+          Cart.deleteProduct(id, product.price);
+        }
       });
     });
   };
