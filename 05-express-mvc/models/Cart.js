@@ -10,11 +10,11 @@ const pth = path.join(
 module.exports = class Cart {
   static addProduct(id, productPrice) {
     fs.readFile(pth, (err, fileContent) => {
+      if (err) return console.log(err);
+
       let cart = { products: [], totalPrice: 0 };
-      if (!err) {
-        const content = fileContent.toJSON();
-        if (content.data.length) cart = JSON.parse(fileContent);
-      }
+      const content = fileContent.toJSON();
+      if (content.data.length) cart = JSON.parse(fileContent);
       const existingProductIdx = cart.products.findIndex(p => p.id === id)
       const existingProduct = cart.products[existingProductIdx]
       let updatedProduct;
@@ -49,5 +49,17 @@ module.exports = class Cart {
         if (err) console.log(err);
       });
     });
-  }
+  };
+
+  static getCart(cb) {
+    fs.readFile(pth, (err, fileContent) => {
+      if (err) {
+        console.log(err)
+        cb(null);
+        return;
+      };
+      const cart = JSON.parse(fileContent);
+      cb(cart);
+    })
+  };
 };
