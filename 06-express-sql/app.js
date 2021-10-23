@@ -4,8 +4,8 @@ const path = require('path');
 const adminRoutes = require('./routes/admin.routes');
 const shopRoutes = require('./routes/shop.routes');
 
-const { get404 } = require('./controllers/errorController');
-
+const errorController = require('./controllers/errorController');
+const db = require('./helpers/database');
 const app = express()
 
 app.set('view engine', 'ejs'); // Registrando template engine
@@ -18,8 +18,8 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 
-app.use(get404);
+app.use(errorController.get404);
 
-app.listen(3000, () =>
+app.listen(3000, () => {
   console.log('🔥Iniciado em:', 'http://localhost:3000 🚀')
-);
+});
